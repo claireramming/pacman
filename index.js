@@ -55,11 +55,6 @@ function createBoard(layout, designArray) {
     })
 }
 
-createBoard(layout, designArray)
-
-
-squares[pacmanCurrentIndex].classList.add('pacman')
-
 function control(e) {
     let nextMove = movePac
     
@@ -112,11 +107,58 @@ function handleSquare() {
     }
 }
 
+class Ghost {
+    constructor(className, startIndex, speed) {
+        this.className = className
+        this.startIndex = startIndex
+        this.speed = speed
+        this.currentIndex = startIndex
+    }
+}
+
+function moveGhost(ghost) {
+    const directions = [-1, +1, -width, +width]
+    let direction = directions[Math.floor(Math.random() * directions.length)]
+    
+    setInterval(() => {
+        const nextGhostSquare = squares[ghost.currentIndex + direction]
+        if (
+            !nextGhostSquare.classList.contains('wall') &&
+            !nextGhostSquare.classList.contains('ghost')
+        ) {
+            squares[ghost.currentIndex].classList.remove(ghost.className)
+            squares[ghost.currentIndex].classList.remove('ghost')
+            ghost.currentIndex += direction
+            squares[ghost.currentIndex].classList.add(ghost.className)
+            squares[ghost.currentIndex].classList.add('ghost')
+        } else direction = directions[Math.floor(Math.random() * directions.length)]
+    }, ghost.speed)
+    
+}
+
+
 function startGame(e) {
     scoreDisplay.innerText = 0
+    ghosts.forEach(ghost => moveGhost(ghost))
     const startInt = setInterval(() => move(startInt),500)
     document.removeEventListener('keydown', startGame)
     document.addEventListener('keydown', control)
 }
+
+createBoard(layout, designArray)
+
+//initiate pacman and ghosts
+squares[pacmanCurrentIndex].classList.add('pacman')
+const ghosts = [
+    new Ghost('blinky', 348, 250),
+    new Ghost('pinky', 376, 400),
+    new Ghost('inky', 351, 300),
+    new Ghost('clyde', 379, 500)
+]
+
+ghosts.forEach(ghost => {
+    squares[ghost.currentIndex].classList.add(ghost.className)
+    squares[ghost.currentIndex].classList.add('ghost')
+})
 
 document.addEventListener('keydown', startGame)
