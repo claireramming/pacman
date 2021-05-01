@@ -9,6 +9,7 @@ html, body {
     width: 420px;
     height: 420px;
     border: solid black;
+    background: black;
 }
 
 .grid div {
@@ -17,9 +18,10 @@ html, body {
 }
 
 .pac-dot {
-    background-color: green;
-    border: 5px solid white;
+    background-color: #ffb347;
+    border: 5px solid black;
     box-sizing: border-box;
+    border-radius: 7.5px;
 }
 
 .wall {
@@ -27,32 +29,117 @@ html, body {
 }
 
 .power-pellet {
-    background-color: green;
+    background-color: #ffb347;
+    border: 2px solid black;
+    box-sizing: border-box;
     border-radius: 7.5px;
 }
 
-.pacman {
-    background-color: orange;
-    border-radius: 7.5px;
+.pacman-open {
+    background-image: url("./images/right.png");
+    width: 15px;
+    height: 15px;
+    background-size: contain;
+    background-repeat: none;
     border: none;
 }
+
+.up {
+    background-image: url("./images/up.png");
+    width: 15px;
+    height: 15px;
+    background-size: contain;
+    background-repeat: none;
+    border: none;
+}
+
+.down {
+    background-image: url("./images/down.png");
+    width: 15px;
+    height: 15px;
+    background-size: contain;
+    background-repeat: none;
+    border: none;
+}
+
+.left {
+    background-image: url("./images/left.png");
+    width: 15px;
+    height: 15px;
+    background-size: contain;
+    background-repeat: none;
+    border: none;
+}
+
+
+.pacman-close {
+    background-image: none;
+    background-color: yellow;
+    border-radius: 7.5px;
+    border: none;
+} 
 
 .blinky {
-    background-color: red;
+    background-image: url('./images/blinky.png');
+    background-color: black;
+    width:15px;
+    height: 15px;
+    background-size: contain;
+    background-repeat: none;
     border: none;
+    border-radius: 0;
 }
 
 .pinky {
-    background-color: pink;
+    background-image: url('./images/pinky.png');
+    background-color: black;
+    width:15px;
+    height: 15px;
+    background-size: contain;
+    background-repeat: none;
     border: none;
+    border-radius: 0;
 }
 
 .inky {
-    background-color: aqua;
+    background-image: url('./images/inky.png');
+    background-color: black;
+    width:15px;
+    height: 15px;
+    background-size: contain;
+    background-repeat: none;
     border: none;
+    border-radius: 0;
 }
 
 .clyde {
-    background-color: orange;
+    background-image: url('./images/clyde.png');
+    background-color: black;
+    width:15px;
+    height: 15px;
+    background-size: contain;
+    background-repeat: none;
     border: none;
+    border-radius: 0;
+}
+
+.scared {
+    background-image: url('./images/scared.jpeg'); 
+    width:15px;
+    height: 15px;
+    background-size: contain;
+    background-repeat: none;
+    border: none;
+    border-radius: 0;
+}
+
+.cherry {
+    background-image: url('./images/cherry.jpeg');
+    background-color: black;
+    width:15px;
+    height: 15px;
+    background-size: contain;
+    background-repeat: none;
+    border: none;
+    border-radius: 0;
 }
